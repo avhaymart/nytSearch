@@ -18,12 +18,13 @@
 
 <body>
     <div class="container-fluid">
-        <div class="row text-light py-5 text-center" id="headerRow">
+        <div class="row text-light py-4 text-center" id="headerRow">
             <div class="col-md-12">
                 <h1>
                     <i class="far fa-newspaper mr-2"></i>New York Times Search</h1>
             </div>
         </div>
+
         <div class="row">
             <div class="col-lg-1">
 
@@ -68,16 +69,34 @@
                             </div>
                         </li>
                         <li class="list-group-item">
-                            <button type="submit" class="btn button" id="submit-button">Search</button>
-                            <button type="clear" class="btn button" id="clear-results">Clear Results</button>
+                            <button type="submit" class="btn button" id="submit-button">
+                                <i class="fas fa-search mr-2"></i>Search</button>
+                            <button type="clear" class="btn button" id="clear-results">
+                                <i class="fas fa-trash-alt mr-2"></i>Clear Results</button>
                         </li>
                     </ul>
                 </div>
+                <div class="card" id="card">
+                    <div class="card-header">
+                        <h4><i class="far fa-newspaper mr-2"></i>Top Articles</h4>
+                    </div>
+                    <ul id="articleHolder" class="list-group list-group-flush"></ul>
+                    <!-- 
+                        This is an example of each article li element:
+                        
+                        <li class="list-group-item">
+                        </li>
+                     -->
+                    </ul>
+                </div>
             </div>
-            <div class="col-lg-1">
 
-            </div>
+
         </div>
+        <div class="col-lg-1">
+            <ul id="articleHolder" class="list-group list-group-flush"></ul>
+        </div>
+    </div>
     </div>
 
 
