@@ -31,11 +31,11 @@ $.ajax({
     
         .then(function(e) {
             console.log(e.response.docs.length);
-            for(i = 0; i > e.response.docs.length; i++){
+            for(i = 0; i < e.response.docs.length; i++){
                 console.log(i);
-                var $li = $("<li>");
-                $li.append(e.response.docs[i]);
-                $("#article-holder").prepend($li);  
+                var $p = $("<p>");
+                $p.append(e.response.docs[i].web_url);
+                $("#article-holder").prepend($p);  
             }
             console.log("Web URL: " + e.response.docs[0].web_url)
 
