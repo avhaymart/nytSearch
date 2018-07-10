@@ -1,19 +1,24 @@
 var search;
-var numRecords=""
+var numRecords;
 var startDate = 19201201
 var endDate = 20201201
 //ajax request
-var test = $("#search-term").val()
-console.log(test)
+$("#submit-button").on("click",function(e){
+    e.preventDefault();
+    search = $("#search-term").val()
+    console.log(search)
+
+console.log(search)
+
 var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+
 url += '?' + $.param({
   'api-key': "29682e6e1b2e47189cfaa9a29501b31a",
   'q': search,
   'begin_date': startDate,
   'end_date': endDate,
   'sort': "newest",
-  'page': numRecords
-
+  'page': numRecords,
 });
 
   console.log(url)
@@ -24,18 +29,15 @@ $.ajax({
       })
 
     
-        .then(function(response) {
-
-            
-
-            console.log(response)
-            console.log("Web URL: " + response.response.docs[0].web_url)
-            $("#submit-button").on("click",function(e){
-              e.preventDefault();
-              search = $("#search-term").val()
-              console.log(search)
-              $("#articleHolder").text(response.response.docs[0].web_url)
-            })
-
+        .then(function(e) {
+            console.log(e.response.docs.length);
+            for(i = 0; i > e.response.docs.length; i++){
+                console.log(i);
+                var $li = $("<li>");
+                $li.append(e.response.docs[i]);
+                $("#article-holder").prepend($li);  
+            }
+            console.log("Web URL: " + e.response.docs[0].web_url)
 
         });
+});
